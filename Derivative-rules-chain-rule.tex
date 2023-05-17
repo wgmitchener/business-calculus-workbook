@@ -1,0 +1,57 @@
+\Section{Derivative rules---chain rule}
+
+\begin{FormulaBox}{Chain rule, Lagrange notation}
+ Given
+ \begin{equation*}
+  \begin{split}
+    \OuterStyle{v(u)} &= \text{ \OuterStyle{function of $u$, \emph{outer function}} }
+    \\
+    \InnerStyle{u(x)} &= \text{ \InnerStyle{function of $x$, \emph{inner function}} }
+    \\
+    f(x) &= \OuterStyle{v\bigg(\InnerStyle{u(x)}\bigg)}
+    \\
+  \end{split}
+ \end{equation*}
+ Think of $f(x)$ as the composition of $\OuterStyle{v(u)}$ and $\InnerStyle{u(x)}$
+ \begin{equation*}
+  f'(x) = \OuterStyle{v'\bigg(\InnerStyle{u(x)}\bigg)}
+  \cdot
+  \InnerStyle{u'(x)}
+ \end{equation*}
+\end{FormulaBox}
+
+\begin{FormulaBox}{Chain rule, Leibniz notation}
+ Given
+ \begin{equation*}
+  \begin{split}
+    y &= \text{ \OuterStyle{function of $u$, \emph{outer function}} }
+    \\
+    u &= \text{ \InnerStyle{function of $x$, \emph{inner function}} }
+    \\
+  \end{split}
+ \end{equation*}
+ Think of $y$ as a function of $x$
+ \begin{equation*}
+  \Deriv{y}{x} =
+  \OuterStyle{\Deriv{y}{u}}
+  \cdot
+  \InnerStyle{\Deriv{u}{x}}
+ \end{equation*}
+\end{FormulaBox}
+
+\begin{FormulaBox}{Chain rule, in words}
+ \begin{equation*}
+  \DerivWord{\Word{composition}}
+  =
+  \OuterStyle{\DerivWord{\Word{outer}}}\cdot\InnerStyle{\DerivWord{\Word{inner}}}
+ \end{equation*}
+\end{FormulaBox}
+
+\begin{FormulaBox}{General power rule---combo power and chain}
+ \Formula{\D{\Y^{\,\P}}}{\P \cdot \Y^{\,\P - 1} \cdot \D{\Y}}
+\end{FormulaBox}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Business-calculus-workbook"
+%%% End:

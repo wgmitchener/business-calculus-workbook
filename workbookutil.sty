@@ -1,0 +1,176 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{workbookutil}
+
+\RequirePackage{enumitem}
+\RequirePackage{pgfkeys}
+\RequirePackage{tcolorbox}
+\RequirePackage{cancel}
+\RequirePackage{tikz}
+
+\pgfkeys{/wgm/wb/ProblemSet/pencil space/.initial={1.5in}}
+\pgfkeys{/wgm/wb/ProblemSet/start num/.code=\addtocounter{enumi}{#1}\addtocounter{enumi}{-1}}
+\pgfkeys{/wgm/wb/ProblemSet/continue/.code=\setcounter{enumi}{\value{wb@problem}}}
+
+
+\newcounter{wb@problem}
+\setcounter{wb@problem}{10}
+
+% [label=\protect\colorbox{black}{\textcolor{white}{\arabic*}}]%
+\newenvironment{ProblemSet}[1][]%
+% def begin env ProblemSet
+{%
+ \begin{enumerate}[label=\protect\fbox{\arabic*}]%
+  \pgfkeys{/wgm/wb/ProblemSet/.cd,#1}%
+  %
+  \newenvironment{Problem}[1][]%
+  % def begin env Problem
+  {\pgfkeys{/wgm/wb/ProblemSet/.cd,##1}%
+  \item\begin{minipage}[t]{\linewidth}}%
+  % def end env Problem
+   {\par\vspace*{\pgfkeysvalueof{/wgm/wb/ProblemSet/pencil space}}\end{minipage}}%
+  %
+  \newcommand{\EqProb}[2][]{%
+   \begin{Problem}[##1]\begin{LeftEquation}##2\end{LeftEquation}\end{Problem}}%
+  %
+  \newcommand{\PROB}[2][]{%
+   \begin{Problem}[##1]
+    \Huge
+    \begin{LeftEquation}
+     \quad ##2
+    \end{LeftEquation}
+   \end{Problem}}%
+ }%
+ % def end env ProblemSet
+ {\setcounter{wb@problem}{\value{enumi}}\end{enumerate}}
+
+% Definitions related to formulas
+\colorlet{DarkGreen}{green!70!black}
+\colorlet{DarkPurple}{violet}
+\colorlet{DarkRed}{red!80!black}
+
+\newcommand{\Word}[1]{\mathrm{#1}}
+\newcommand{\DerivWord}[1]{\Word{deriv}\left[#1\right]}
+\newcommand{\LeftStyle}[1]{\textcolor{DarkRed}{#1}}
+\newcommand{\RightStyle}[1]{\textcolor{blue}{#1}}
+\newcommand{\OuterStyle}[1]{\textcolor{DarkGreen}{#1}}
+\newcommand{\InnerStyle}[1]{\textcolor{DarkPurple}{#1}}
+\newcommand{\ThisStyle}[1]{\LeftStyle{#1}}
+\newcommand{\ThatStyle}[1]{\RightStyle{#1}}
+\newcommand{\BaseStyle}[1]{\LeftStyle{#1}}
+\newcommand{\PowerStyle}[1]{\RightStyle{#1}}
+
+\newcommand{\LN}[1]{\mathrm{ln}\hspace{-0.1ex}\left(#1\right)}
+\newcommand{\LOG}[2]{\log_{#1}\left(#2\right)}
+
+\newcommand{\WithSymbolDefs}[1]{
+ {
+  \newcommand{\FormulaStrut}{\text{\rule[-0.4ex]{0pt}{1.8ex}}}
+  \newcommand{\U}{{\LeftStyle{u}}}%
+  \renewcommand{\V}{{\RightStyle{v}}}%
+  \renewcommand{\K}{{\InnerStyle{C}}}%
+  \newcommand{\B}{\BaseStyle{b}}%
+  \newcommand{\Y}{{\OuterStyle{w}}}%
+  \newcommand{\X}{x}%
+  \renewcommand{\W}{w}%
+  \newcommand{\M}{{\OuterStyle{m}}}%
+  \renewcommand{\N}{{\InnerStyle{n}}}%
+  \renewcommand{\P}{{\InnerStyle{n}}}%
+  \newcommand{\Hi}{\U}%
+  \newcommand{\Lo}{\V}%
+  \newcommand{\THIS}{\ThisStyle{m}}%
+  \newcommand{\THAT}{\ThatStyle{n}}%
+  \newcommand{\D}[1]{\frac{\mathrm{d}}{\mathrm{d}x}\left(##1\right)}%
+  #1%
+ }%
+}
+
+\newcommand{\WithWordDefs}[1]{
+ {
+  \newcommand{\FormulaStrut}{\text{\rule[-0.4ex]{0pt}{1.8ex}}}
+  \newcommand{\U}{\Word{\LeftStyle{left}}}%
+  \renewcommand{\V}{\Word{\RightStyle{right}}}%
+  \renewcommand{\K}{\Word{\InnerStyle{constant}}}%
+  \newcommand{\B}{\Word{\BaseStyle{base}}}%
+  \newcommand{\Y}{\Word{\OuterStyle{stuff}}}%
+  \newcommand{\X}{x}%
+  \renewcommand{\W}{\Word{stuff}}%
+  \newcommand{\M}{\Word{\OuterStyle{outer}}}%
+  \renewcommand{\N}{\Word{\InnerStyle{inner}}}%
+  \renewcommand{\P}{\Word{\InnerStyle{power}}}%
+  \newcommand{\Hi}{\Word{\LeftStyle{top}}}%
+  \newcommand{\Lo}{\Word{\RightStyle{bottom}}}%
+  \newcommand{\THIS}{\Word{\ThisStyle{this}}}%
+  \newcommand{\THAT}{\Word{\ThatStyle{that}}}%
+  \newcommand{\D}[1]{\DerivWord{{##1}}}%
+  #1%
+ }%
+}
+
+\newcommand{\Formula}[2]{
+ \WithSymbolDefs{
+  \begin{equation*}
+   #1 = #2
+  \end{equation*}
+ }
+ \smallskip
+ \WithWordDefs{
+  \begin{align*}
+    & #1 \\[8pt]
+    & \quad = #2
+  \end{align*}}%
+}
+
+\newcommand{\FormulaCompact}[2]{%
+ \begin{equation*}
+  \begin{split}
+   \WithSymbolDefs{#1} &= \WithSymbolDefs{#2}
+   \\
+   \WithWordDefs{#1} &= \WithWordDefs{#2}
+   \\
+  \end{split}
+ \end{equation*}}
+
+\newtcolorbox{tcFormulaBox}{
+ colback=black!3!white,
+ colframe=blue!95!white}
+\newenvironment{FormulaBox}[1]{\begin{tcFormulaBox}\begin{flushleft}\textbf{#1}\newline}{\end{flushleft}\end{tcFormulaBox}}
+
+\newtcolorbox{tcWarningBox}{
+ colback=orange!3!white,
+ colframe=red!95!white}
+\newenvironment{WarningBox}[1]{\begin{tcWarningBox}\begin{flushleft}\textbf{#1}\newline}{\end{flushleft}\end{tcWarningBox}}
+
+\newenvironment{LeftEquation}{\(\displaystyle}{\)}
+
+\definecolor{GraphingGridColor}{gray}{0.8}
+\newcommand{\GraphingGridLineWidth}{0.5pt}
+
+\newcommand{\GraphingGrid}{
+\begin{center}
+ \begin{tikzpicture}
+  \draw[step=1, color=GraphingGridColor, line width=\GraphingGridLineWidth]
+  (0,0) grid (12,12);
+ \end{tikzpicture}
+\end{center}
+}
+
+\newcommand{\GraphingGridMedium}{
+ \begin{center}
+  \begin{tikzpicture}
+   \draw[step=1, color=GraphingGridColor, line width=\GraphingGridLineWidth]
+   (0,0) grid (10,10) ;
+  \end{tikzpicture}
+ \end{center}
+}
+
+\newcommand{\GraphingGridSmall}{
+\begin{center}
+ \begin{tikzpicture}
+  \draw[step=1, color=GraphingGridColor, line width=\GraphingGridLineWidth]
+  (0,0) grid (8,8);
+ \end{tikzpicture}
+\end{center}
+}
+
+\newcommand*{\IndefiniteIntegral}[2]{\int #1 \,\dif{#2}}
+\newcommand*{\DefiniteIntegral}[4]{\int_{#1}^{#2} #3 \,\dif{#4}}

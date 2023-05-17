@@ -1,0 +1,14 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{workbook}
+
+\RequirePackage{pgfkeys}
+\RequirePackage{fancyhdr}
+
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection\ #1}{}}
+\setlength{\headheight}{15pt}
+\fancyhead[LE,RO]{\thepage}
+\fancyfoot[CE,CO]{}
+
+\newcommand{\Section}[1]{\newpage\section{#1}}
+\newcommand{\Subheading}[1]{\bigskip\textbf{#1}\smallskip}

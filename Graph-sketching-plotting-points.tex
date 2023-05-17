@@ -1,0 +1,54 @@
+\Section{Graph sketching---plotting points}
+
+The graph of a function $f$ is a set of points in a coordinate plane.
+We usually associate the horizontal axis with an independent variable, typically $x$, and the vertical axis with a dependent variable, typically $y$, and label the graph $y = f(x)$.
+Each number $x$ in the domain of $f$ corresponds to a point $(x, f(x))$.
+
+Consider the function
+\begin{equation*}
+ f(x) = -\frac{1}{5} x^2 (x - 4)
+\end{equation*}
+\begin{ProblemSet}[pencil space=0.5in]
+ \begin{Problem}[pencil space=0in]
+  Find the coordinates of the points on the graph of $f$ whose $x$-coordinates are $-2$, $-1$, $0$, $1$, $2$, $3$, $4$, $5$.
+  List them in this table.
+  Round the $y$-coordinates to the nearest tenth.
+
+  \begin{tikzpicture}
+   \path[use as bounding box] (-1,-1) rectangle (9,10);
+   \draw[color=GraphingGridColor, line width=\GraphingGridLineWidth,
+   ]
+   (0, 0) grid[xstep=4,ystep=1] (8, 8)
+   ;
+   \node at (2,8.5) {$x$};
+   \node at (6,8.5) {$f(x)$};
+  \end{tikzpicture}
+ \end{Problem}
+ \begin{Problem}
+  Choose an $x$-range, that is, a number $\xMin$ a bit less than all those $x$-values and a number $\xMax$ a bit greater than all those $x$-values.
+ \end{Problem}
+ \begin{Problem}
+  Choose a $y$-range, that is, a number $\yMin$ a bit less than all those $y$-values and a number $\yMax$ a bit greater than all those $y$-values.
+ \end{Problem}
+ \begin{Problem}
+  Draw axes on the grid below and set up a coordinate system that includes the interval from $\xMin$ to $\xMax$ horizontally, and $\yMin$ to $\yMax$ vertically.
+  Draw tick marks and numbers on the axes to indicate the scale.
+  The horizontal and vertical scales don't have to be the same and you don't have to use the whole grid.
+  Then plot the points you wrote down in the table and draw a smooth curve connecting them.
+  Use a calculator to check your picture.
+
+  \bigskip
+  \GraphingGrid
+ \end{Problem}
+ \begin{Problem}
+  Use the graph to estimate $f(1.5)$ and check it with your calculator.
+ \end{Problem}
+ \begin{Problem}
+  Use the graph to estimate the three solutions to $f(x) = 1$ and check them with your calculator.
+ \end{Problem}
+\end{ProblemSet}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Business-calculus-workbook"
+%%% End:

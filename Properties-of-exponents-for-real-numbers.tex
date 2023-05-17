@@ -1,0 +1,103 @@
+\Section{Properties of exponents for real numbers}
+
+In the notation $a^n$, the number $a$ is called the \emph{base}, and the number $n$ is called the \emph{exponent} or \emph{power}.
+A whole number exponent $n$ means repeated multiplication:
+\begin{equation*}
+ a^n \text{ means } \overbrace{a \times a \times \cdots \times a}^{\text{multiply $n$ copies of $a$}}
+\end{equation*}
+The meaning of a fractional exponent $n$ is given in \cref{sec:roots-frac-exp}.
+
+The following properties hold as long as all operations are defined.
+
+\begin{multicols}{2}
+
+ \begin{FormulaBox}{Easy cases}
+  \begin{equation*}
+   \begin{split}
+     a^0 &= 1  \text{ provided $a \neq 0$ }
+     \\
+     a^1 &= a
+     \\
+     a^2 &= a \cdot a
+     \\
+   \end{split}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Powers of $1$}
+  \begin{equation*}
+   1^n = 1
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Powers of $0$}
+  \begin{equation*}
+   0^n =
+   \begin{cases}
+     0 & \text{ if $n > 0$}
+     \\
+     \text{undefined} & \text{ if $n \leq 0$ }
+   \end{cases}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Sign of odd powers}
+  If $n$ is \emph{odd}, $a^n$ has the same sign as $a$.
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Sign of even powers}
+  If $n$ is \emph{even}, $a^n \geq 0$ no matter what sign $a$ has.
+  In this case, $a^n = \Abs{a^n} = \Abs{a}^n$.
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Nested powers}
+  \begin{equation*}
+   (a^n)^m = a^{n \cdot m}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Product with same base}
+  \begin{equation*}
+   a^m \cdot a^n = a^{m+n}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Product with same exponent}
+  \begin{equation*}
+   a^n \cdot b^n = (a \cdot b)^n
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Negative exponent}
+  As long as $a \neq 0$:
+  \begin{equation*}
+   \begin{split}
+     a^{-1} &= \frac{1}{a}
+     \\
+     a^{-n} &= \frac{1}{a^n}
+     \\
+     \frac{c}{a^n} &= c \cdot a^{-n}
+     \\
+   \end{split}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Quotient with same base}
+  \begin{equation*}
+   \frac{a^m}{a^n} = a^m \cdot a^{-n} = a^{m-n}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Quotient with same exponent}
+  As long as $b \neq 0$:
+  \begin{equation*}
+   \frac{a^n}{b^n} = \pfrac{a}{b}^n
+  \end{equation*}
+ \end{FormulaBox}
+
+\end{multicols}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Business-calculus-workbook"
+%%% End:

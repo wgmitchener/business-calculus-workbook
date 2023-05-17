@@ -1,0 +1,418 @@
+\ProvidesPackage{wgmmath}[2022/02/14]
+\NeedsTeXFormat{LaTeX2e}
+
+% Don't load these if they're already loaded, so as to avoid
+% option clashes.
+
+% For documentation on
+% \@ifpackageloaded{pkg}{if-loaded}{if-not}
+% see LaTeX companion p888
+
+\@ifpackageloaded{amsmath}{}{\RequirePackage{amsmath}}
+% Load amssymb if not already, but we don't need it if mathdesign or unicode-math is loaded.
+\@ifpackageloaded{mathdesign}{}{
+ \@ifpackageloaded{unicode-math}{}{
+  \@ifpackageloaded{amssymb}{}{\RequirePackage{amssymb}}}}
+%\@ifpackageloaded{amsthm}{}{\RequirePackage{amsthm}}
+% for \fourIdx for left-side subscripts and superscripts:
+\@ifpackageloaded{fouridx}{}{\RequirePackage{fouridx}}
+%\@ifpackageloaded{stmaryrd}{}{\RequirePackage{stmaryrd}}
+\@ifpackageloaded{nicefrac}{}{\RequirePackage{nicefrac}}
+\@ifpackageloaded{siunitx}{}{\RequirePackage{siunitx}}
+\@ifpackageloaded{etoolbox}{}{\RequirePackage{etoolbox}}
+\@ifpackageloaded{pgfopts}{}{\RequirePackage{pgfopts}}
+\@ifpackageloaded{array}{}{\RequirePackage{array}}
+\@ifpackageloaded{calc}{}{\RequirePackage{calc}}
+\@ifpackageloaded{graphicx}{}{\RequirePackage{graphicx}}
+
+\@ifpackageloaded{tikz}{\usepgflibrary{arrows}}{}
+
+
+% Automatically updates \autoref etc. with the names of theorem types.
+\@ifpackageloaded{thmtools}{}{\RequirePackage{thmtools}}
+
+
+% The accents package:
+% for \accentset for harpoon (half-arrow) vector symbols
+% Doesn't play well with arevmath, so only load this if
+% absolutely needed
+%\@ifpackageloaded{accents}{}{\RequirePackage{accents}}
+
+
+
+% Vector style
+\providecommand*{\VSty}[1]{XXX}
+\newcommand*{\VecMathbf}{\renewcommand*{\VSty}[1]{\mathbf{##1}}}
+\newcommand*{\VecArrow}{\renewcommand*{\VSty}[1]{\vec{##1}}}
+
+\newcommand*{\wgm@VecHarpoonSetup}{%
+ \@ifpackageloaded{accents}{}{\RequirePackage{accents}}%
+ \newcommand*{\VecHarpoon}{\renewcommand*{\VSty}[1]{\accentset{\rightharpoonup}{##1}}}}
+
+% i, e, d style
+\providecommand{\me}{\mathrm{e}}%
+\providecommand{\mi}{\mathrm{i}}%
+\providecommand{\dif}{\mathrm{d}}
+
+\newcommand*{\IEDNormal}{
+ \renewcommand{\me}{e}%
+ \renewcommand{\mi}{i}%
+ \renewcommand{\dif}{d}}
+
+\newcommand*{\IEDMathrm}{
+ \renewcommand{\me}{\mathrm{e}}%
+ \renewcommand{\mi}{\mathrm{i}}%
+ \renewcommand{\dif}{\mathrm{d}}}
+
+% For TI-like scientific notation
+\newcommand*{\scE}{\mathtt{\scriptstyle E}}
+
+% So I can change between bold R and blackboard bold R
+% because \mathbb doesn't work with arev
+
+\newcommand*{\MBold}[1]{\mathbf{#1}}
+\newcommand*{\MBoldMathbb}{
+ \renewcommand*{\MBold}[1]{\mathbb{##1}}}
+\newcommand*{\MBoldMathbf}{
+ \renewcommand*{\MBold}[1]{\mathbf{##1}}}
+
+% So I can change between American and European style intervals
+
+% \GenInterval{left delim}{right delim}{left end}{right end}
+\providecommand{\GenInterval}[4]{{\left#1{#3},{#4}\right#2}}
+
+% These are the American conventions
+\newcommand{\IntervalOO}[2]{\GenInterval{(}{)}{#1}{#2}}
+\newcommand{\IntervalOC}[2]{\GenInterval{(}{]}{#1}{#2}}
+\newcommand{\IntervalCO}[2]{\GenInterval{[}{)}{#1}{#2}}
+\newcommand{\IntervalCC}[2]{\GenInterval{[}{]}{#1}{#2}}
+
+
+\newcommand{\AmericanIntervals}{%
+\renewcommand{\IntervalOO}[2]{\GenInterval{(}{)}{##1}{##2}}%
+\renewcommand{\IntervalOC}[2]{\GenInterval{(}{]}{##1}{##2}}%
+\renewcommand{\IntervalCO}[2]{\GenInterval{[}{)}{##1}{##2}}%
+\renewcommand{\IntervalCC}[2]{\GenInterval{[}{]}{##1}{##2}}%
+}
+
+\newcommand{\EuropeanIntervals}{%
+\renewcommand{\IntervalOO}[2]{\GenInterval{]}{[}{##1}{##2}}%
+\renewcommand{\IntervalOC}[2]{\GenInterval{]}{]}{##1}{##2}}%
+\renewcommand{\IntervalCO}[2]{\GenInterval{[}{[}{##1}{##2}}%
+\renewcommand{\IntervalCC}[2]{\GenInterval{[}{]}{##1}{##2}}%
+}
+
+% Transpose options
+\newcommand*{\transposeT}{\mathsf{T}}
+\newcommand*{\transposeDagger}{\dagger}
+\newcommand*{\TransposeLetter}{\let\transpose\transposeT}
+\newcommand*{\TransposeDagger}{\let\transpose\transposeDagger}
+\TransposeLetter
+
+\newcommand*{\TransposePostSuper}[1]{#1^{\mathsf{T}}}
+\newcommand*{\TransposePreSuper}[1]{\fourIdx{\mathsf{T}}{}{}{}{##1}}
+\newcommand*{\TransposeAfter}{\let\Transpose\TransposePostSuper}
+\newcommand*{\TransposeBefore}{\let\Transpose\TransposePreSuper}
+\TransposeAfter
+\newcommand*{\pTranspose}[1]{\Transpose{\left(#1\right)}}
+
+\newcommand*{\adjointAsterisk}{*}
+\newcommand*{\adjointDagger}{\dagger}
+\newcommand*{\AdjointAsterisk}{\let\adjoint\adjointAsterisk}
+\newcommand*{\AdjointDagger}{\let\adjoint\adjointDagger}
+\AdjointAsterisk
+
+\newcommand*{\Adjoint}[1]{#1^{\adjoint}}
+\newcommand*{\pAdjoint}[1]{\Adjoint{\left(#1\right)}}
+
+
+% So I can change between vector derivative operation notations
+
+\newcommand{\gradSym}{\nabla}
+\newcommand{\gradWord}{\operatorname{grad}}
+\providecommand*{\grad}{\gradSym}
+
+\newcommand*{\VectorDerivSymbols}{
+ \renewcommand{\grad}{\gradSym}}
+
+\newcommand*{\VectorDerivWords}{
+ \renewcommand{\grad}{\gradWord}}
+
+\newcommand*{\Grad}[2][]{\grad#1\left(#2\right)}
+
+\newcommand*{\Trace}[2][]{\operatorname{tr}#1#2}
+\newcommand*{\pTrace}[2][]{\Trace[#1]\left({#2}\right)}
+
+\newcommand*{\wgm@SetupTheorems}{
+ \declaretheorem[numberwithin=subsection]{theorem}
+ \declaretheorem[sibling=theorem]{lemma}
+ \declaretheorem[sibling=theorem]{corollary}
+ \declaretheorem[sibling=theorem]{proposition}
+}
+
+%% Set building and list building
+
+\newcommand*{\VBar}{\,\,\middle\vert\,\,}
+
+\newcommand*{\SetBuild}[2]{\left\{\,#1\VBar#2\,\right\}}
+\newcommand*{\SetBuildBar}{
+ \renewcommand*{\SetBuild}[2]{\left\{\,##1\VBar##2\,\right\}}
+}
+\newcommand*{\SetBuildColon}{
+ \renewcommand*{\SetBuild}[2]{\left\{\,##1:##2\,\right\}}
+}
+
+\newcommand*{\ListBuild}[2]{\left[\,#1\VBar#2\,\right]}
+\newcommand*{\ListBuildBar}{
+ \renewcommand*{\ListBuild}[2]{\left[\,##1\VBar##2\,\right]}
+}
+\newcommand*{\ListBuildColon}{
+ \renewcommand*{\ListBuild}[2]{\left[\,##1:##2\,\right]}
+}
+
+%% Negation of a proposition
+\newcommand{\NegProp}{\neg}
+\newcommand{\NegPropNeg}{
+ \renewcommand{\NegProp}{\neg}
+}
+% \sim is usually a binary operator, as in \mathbin{...}
+% \mathord makes it an ordinary, letter-like symbol.
+\newcommand{\NegPropSim}{
+ \renewcommand{\NegProp}{\mathord{\sim}}
+}
+
+%% Quantifier notation
+\newcommand*{\wgm@QuantifierColon}[3]{#1\, #2 :\, #3}
+\newcommand*{\wgm@QuantifierParens}[3]{\left(#1 #2\right) #3}
+\newcommand*{\wgm@Quantifier}[3]{\wgm@QuantifierColon{#1}{#2}{#3}}
+\newcommand{\QuantifierColon}{
+ \renewcommand*{\wgm@Quantifier}[3]{\wgm@QuantifierColon{##1}{##2}{##3}}
+}
+\newcommand{\QuantifierParens}{
+ \renewcommand*{\wgm@Quantifier}[3]{\wgm@QuantifierParens{##1}{##2}{##3}}
+}
+
+\newcommand*{\ForAll}[2]{\wgm@Quantifier{\forall}{#1}{#2}}
+\newcommand*{\Exists}[2]{\wgm@Quantifier{\exists}{#1}{#2}}
+\newcommand*{\Exist}[2]{\wgm@Quantifier{\exists}{#1}{#2}}
+\newcommand*{\ExistsUnique}[2]{\wgm@Quantifier{\exists!}{#1}{#2}}
+\newcommand*{\ExistUnique}[2]{\wgm@Quantifier{\exists!}{#1}{#2}}
+
+
+\pgfkeys{
+  wgmmath/.cd,
+  bbb/.code={\MBoldMathbb},
+  ied/.is choice,
+  ied/normal/.code={\IEDNormal},
+  ied/mathrm/.code={\IEDMathrm},
+  intervals/.is choice,
+  intervals/american/.code={\AmericanIntervals},
+  intervals/european/.code={\EuropeanIntervals},
+  listbuild/.is choice,
+  listbuild/bar/.code={\ListBuildBar},
+  listbuild/colon/.code={\ListBuildColon},
+  mbold/.is choice,
+  mbold/mathbb/.code={\MBoldMathbb},
+  mbold/mathbf/.code={\MBoldMathbf},
+  negprop/.is choice,
+  negprop/neg/.code={\NegPropNeg},
+  negprop/sim/.code={\NegPropSim},
+  quantifier/.is choice,
+  quantifier/colon/.code={\QuantifierColon},
+  quantifier/parens/.code={\QuantifierParens},
+  setbuild/.is choice,
+  setbuild/bar/.code={\SetBuildBar},
+  setbuild/colon/.code={\SetBuildColon},
+  transpose/.is choice,
+  transpose/before/.code={\TransposeBefore},
+  transpose/after/.code={\TransposeAfter},
+  transposebefore/.code={\TransposeBefore},
+  transposesym/.is choice,
+  transposesym/letter/.code={\TransposeLetter},
+  transposesym/dagger/.code={\TransposeDagger},
+  theoremdefs/.code={\wgm@SetupTheorems},
+  vder/.is choice,
+  vder/words/.code={\VectorDerivWords},
+  vder/symbols/.code={\VectorDerivSymbols},
+  vderwords/.code={\VectorDerivWords},
+  vec/.is choice,
+  vec/mathbf/.code={\VecMathbf},
+  vec/arrow/.code={\VecArrow},
+  vec/harpoon/.code={\wgm@VecHarpoonSetup\VecHarpoon}
+}
+
+\ProcessPgfOptions{/wgmmath}
+
+
+
+
+% In a split or align type environment, to break a line between
+% arguments to + and have the correct indentation, LaTeX
+% Companion 2nd Ed suggests this (p473-474).
+% Use: x &= f(x) \SplitContinue + g(x)
+\newcommand{\SplitContinue}[1][=]{\\ &\mathrel{\phantom{#1}} {}}
+
+% This is used to mark unfinished bits
+\newenvironment{Future}%
+{\begin{center}
+\fbox{\large\textbf{\ddag}}~%
+\begin{minipage}[t]{4in}
+\rule{4in}{1pt}
+\par
+}%
+{\par\rule[0.5em]{4in}{1pt}\\
+\end{minipage}\end{center}}
+
+%% Superscript minus
+\newcommand*{\Neg}[1]{\fourIdx{-}{}{}{}{#1}}
+
+
+
+\newcommand{\NaturalNumbers}{\MBold{N}}
+\newcommand{\Naturals}{\NaturalNumbers}
+\newcommand{\Integers}{\MBold{Z}}
+\newcommand{\WholeNumbers}{\MBold{W}}
+\newcommand{\RationalNumbers}{\MBold{Q}}
+\newcommand{\Rationals}{\RationalNumbers}
+\newcommand{\RealNumbers}{\MBold{R}}
+\newcommand{\Reals}{\RealNumbers}
+\newcommand{\ComplexNumbers}{\MBold{C}}
+\newcommand{\Complexes}{\ComplexNumbers}
+\newcommand{\Quaternions}{\MBold{H}}
+\newcommand{\Octonions}{\MBold{O}}
+
+% The intention is \Matrices{<Field>, <Dimensions>}
+\newcommand*{\Matrices}[2]{\MBold{M}\left(#1, #2\right)}
+
+\newcommand*{\Abs}[1]{\left\lvert#1\right\rvert}
+\newcommand*{\Norm}[1]{\left\lVert#1\right\rVert}
+\newcommand*{\NearestInt}[1]{\left[#1\right]}
+\newcommand*{\Ceiling}[1]{\left\lceil#1\right\rceil}
+\newcommand*{\Floor}[1]{\left\lfloor#1\right\rfloor}
+
+\newcommand*{\Binom}[2]{
+ \begin{pmatrix}
+  #1 \\ #2
+ \end{pmatrix}
+}
+
+% I want a stretchy bar for m divides n.
+% There's not a direct way to make a stretchy, properly spaced,
+% binary operator symbol in tex, so I have to put space in
+% manually:
+\newcommand*{\Divides}[2]{\left.#1\,\middle\vert\,#2\right.}
+
+% For modulus notation
+\newcommand*{\SlashFrac}[2]{\left.#1\middle/#2\right.}
+
+\newcommand*{\EqClass}[1]{\left\llbracket#1\right\rrbracket}
+
+\newcommand*{\Range}[1]{\operatorname{range} #1}
+\newcommand*{\Domain}[1]{\operatorname{domain} #1}
+\newcommand*{\Codomain}[1]{\operatorname{codomain} #1}
+\newcommand{\NullSet}{\varnothing} % I like this better than
+                                % \emptyset
+\newcommand{\EmptySet}{\NullSet}
+
+\newcommand*{\NullSpace}[1]{\operatorname{null} #1}
+
+\newcommand*{\FnType}[2]{#1\colon #2}
+\@ifpackageloaded{tikz}{% in case we're using tikz:
+ \newcommand{\@FnArrow}[2]{\mathrel{%
+   \tikz[baseline=0pt]{\draw[arrows=#1-#2]
+    (0ex,0.5ex) -- (2ex,0.5ex);}}}
+ % This should be almost the same as \to
+ \newcommand{\To}{\@FnArrow{}{>}}
+ % This should be almost the same as \mapsto, but it's clunky
+ % \newcommand{\MapsTo}{\@FnArrow{|}{>}}
+ \newcommand{\MapsTo}{\mapsto}
+ \newcommand{\InjectionTo}{\@FnArrow{right hook}{>}}
+ \newcommand{\SurjectionTo}{\@FnArrow{}{>>}}
+ \newcommand{\BijectionTo}{\@FnArrow{right hook}{>>}}
+}{% In case of no tikz:
+ \newcommand{\To}{\to}
+ \newcommand{\MapsTo}{\mapsto}
+ \newcommand{\InjectionTo}{\hookrightarrow{}}
+ \newcommand{\SurjectionTo}{\twoheadrightarrow{}}
+ \newcommand{\BijectionTo}{\PackageError{wgmmath}{%
+The BijectionTo command requires the TikZ package.}{%
+To enable it, load package tikz before loading this package.
+}}
+}
+% \LP{p}{x} = L^p norm of x
+\newcommand*{\LP}[2]{\Norm{#2}_{L^{#1}}}
+\newcommand*{\Lone}[1]{\LP{1}{#1}}
+\newcommand*{\Ltwo}[1]{\LP{2}{#1}}
+\newcommand*{\Linfty}[1]{\LP{\infty}{#1}}
+% \IP = inner product
+\newcommand*{\IP}[2]{\left\langle #1, #2\right\rangle}
+\newcommand*{\Where}[2]{\left.#1\right|_{#2}}
+\newcommand{\SetMinus}{\smallsetminus}
+\newcommand*{\SetComplement}[1]{#1^{\operatorname{c}}}
+\newcommand*{\pfrac}[2]{\genfrac{(}{)}{}{}{#1}{#2}}
+\DeclareMathOperator{\sgn}{sgn}
+% \newcommand*{\Stack}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+\newcommand{\ProbP}{\MBold{P}}
+\newcommand{\ProbE}{\MBold{E}}
+\newcommand{\Probp}{\operatorname{p}}
+\newcommand*{\Prob}[2][]{\ProbP #1\left(#2\right)}
+\newcommand*{\prob}[2][]{Probp #1\left(#2\right)}
+\newcommand*{\Exp}[2][]{\ProbE #1\left(#2\right)}
+% Conditional expectation and probability
+\newcommand*{\ProbGiven}[3][]{\ProbP #1\left(#2\VBar#3\right)}
+\newcommand*{\probGiven}[3][]{\Probp #1\left(#2\VBar#3\right)}
+\newcommand*{\ExpGiven}[3][]{\ProbE #1\left(#2\VBar#3\right)}
+% For Q | m, n ~ distribution:
+\newcommand*{\CondDist}[2]{\left.#1\VBar#2\right.}
+\newcommand{\ProbVar}{\operatorname{Var}}
+\newcommand*{\Var}[2][]{\ProbVar #1\left(#2\right)}
+\newcommand{\ProbCov}{\operatorname{Cov}}
+\newcommand*{\Cov}[3][]{\ProbCov #1\left(#2,#3\right)}
+% For nCr
+\newcommand*{\Combinations}[2]{\fourIdx{}{#1}{}{#2}{C}}
+% For nPr
+\newcommand*{\Permutations}[2]{\fourIdx{}{#1}{}{#2}{P}}
+
+\newcommand{\IFF}{\operatorname{\Longleftrightarrow}}
+\newcommand{\Implies}{\Rightarrow}
+\newcommand*{\Interior}[1]{#1^{\circ}}
+\newcommand{\BigOSym}{\mathcal{O}}
+\newcommand*{\BigO}[1]{\BigOSym\left(#1\right)}
+\newcommand{\LittleOSym}{\mathcal{o}}
+\newcommand*{\LittleO}[1]{\LittleOSym\left(#1\right)}
+\newcommand*{\Partial}[3][{}]{\frac{\partial^{#1}#2}{\partial#3^{#1}}}
+\newcommand*{\Deriv}[3][{}]{\frac{\dif^{#1}#2}{\dif#3^{#1}}}
+\newcommand{\Laplacian}{\Delta}
+%\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\Id}{I}
+\newcommand*{\Indicator}[1]{\operatorname{\mathbf{1}}\!\left(#1\right)}
+\newcommand*{\Simplex}[1]{\mathcal{S}^{#1}}
+\newcommand*{\Torus}[1]{\mathcal{T}^{#1}}
+\DeclareMathOperator{\RePart}{Re}
+\DeclareMathOperator{\ImPart}{Im}
+
+% arg min and arg max, with subscripts set underneath when possible
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% least common multiple and greatest common divisor
+\DeclareMathOperator*{\LeastCommonMultiple}{lcm}
+\DeclareMathOperator*{\GreatestCommonDivisor}{gcd}
+
+% Continuous functions
+\newcommand*{\Continuous}[1]{\mathcal{C}\left(#1\right)}
+\newcommand{\Spectrum}[1]{\sigma\left(#1\right)}
+
+
+% binary operators
+\newcommand{\union}{\cup}
+\newcommand{\intersection}{\cap}
+
+% summation-like operations
+\newcommand{\Union}{\bigcup}
+\newcommand{\Intersection}{\bigcap}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

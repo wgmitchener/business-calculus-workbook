@@ -1,0 +1,44 @@
+\ProvidesPackage{wgmutil}[2023/05/12]
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{datetime2}
+\RequirePackage{etoolbox}
+\RequirePackage{draftwatermark}
+
+\DraftwatermarkOptions{stamp=false}
+
+\@ifpackageloaded{fancyhdr}{
+ \providecommand{\TimestampHeaders}{
+  \fancypagestyle{plain}{
+   \fancyhf{}
+   \rfoot{Compiled \DTMnow}
+   \lfoot{\thepage}}
+  \pagestyle{plain}
+ }
+}{
+ \PackageWarning{wgmutil}{Package fancyhdr wasn't loaded; TimestampHeaders will do nothing}
+ \providecommand{\TimestampHeaders}{}
+}
+
+\providecommand{\MarkAsDraft}{
+ \DraftwatermarkOptions{stamp=true,colorspec=0.9}
+}
+
+% Definitions below here shouldn't be controversial
+
+% Create a zero width, zero depth text line.  Use this for
+% aligning tops or bottoms of minipages.
+\providecommand{\InfinitesimalLine}{\vspace{0pt}}
+
+\ifdef{\textcolor}{
+ \providecommand{\wgm@red}[1]{\textcolor{red}{#1}}
+}{
+ \providecommand{\wgm@red}[1]{#1}
+}
+\providecommand{\Alert}[1]{\marginpar{\wgm@red{\framebox{!}}}\AlertBase{#1}}
+\providecommand{\AlertBase}[1]{\wgm@red{#1}\PackageWarning{wgmutil}{Unresolved alert}}
+
+% Make a strut that sticks up from the baseline by the main arg,
+% and below the baseline by 0.3\baselineskip (optional arg)
+% Maybe need to test this
+\providecommand*{\Strut}[2][-.3\baselineskip]{\rule[#1]{0pt}{#2}}

@@ -1,0 +1,81 @@
+\Section{Properties of logarithms for real numbers}
+
+\begin{multicols}{2}
+
+ \begin{FormulaBox}{Domain and range}
+  Domain of $\me^x$ is all real numbers
+
+  But $\me^x > 0$ for every $x$
+  \smallskip
+
+  Domain of $\LN{x}$ is only $x > 0$
+
+  But $\LN{x}$ is
+  \begin{itemize}
+  \item positive for $x > 1$
+  \item zero for $x = 1$
+  \item negative for $0 < x < 1$
+  \end{itemize}
+
+ \end{FormulaBox}
+ \begin{FormulaBox}{Special values}
+  \begin{equation*}
+   \begin{aligned}
+     \me^0 &=1  &\quad \LN{1} &= 0
+     \\
+     \me^1 &=\me &\quad \LN{\me} &=1
+   \end{aligned}
+  \end{equation*}
+ \end{FormulaBox}
+ \begin{FormulaBox}{Inverse function}
+  \FormulaCompact{\me^{\LN{\Y}}}{\Y}
+  \FormulaCompact{\LN{\me^{\Y}}}{\Y}
+ \end{FormulaBox}
+ \begin{FormulaBox}{Multiplication / Addition}
+  \FormulaCompact{\me^{\THIS} \cdot \me^{\THAT}}{\me^{\THIS + \THAT}}
+  \FormulaCompact{\LN{\U \cdot \V}}{\LN{\U} + \LN{\V}}
+ \end{FormulaBox}
+ \begin{FormulaBox}{Division / Subtraction}
+  \FormulaCompact{\frac{\me^{\THIS}}{\me^{\THAT}}}{\me^{\THIS - \THAT}}
+  \FormulaCompact{\LN{\frac{\Hi}{\Lo}}}{\LN{\Hi} - \LN{\Lo}}
+ \end{FormulaBox}
+ \begin{FormulaBox}{Nested power / Multiplication}
+  \FormulaCompact{\left(\me^\N\right)^\M}{\me^{\N\cdot\M}}
+  \FormulaCompact{\LN{\B^\P}}{\P\cdot\LN{\B}}
+ \end{FormulaBox}
+ \begin{FormulaBox}{Using $\ln$ and $\me$ to compute powers}
+  \WithSymbolDefs{
+   \begin{equation*}
+    \B^\P = \me^{\P \cdot \LN{\B}}
+   \end{equation*}
+  }
+ \end{FormulaBox}
+ \begin{FormulaBox}{Base other than $\me$}
+  \WithSymbolDefs{
+   \begin{equation*}
+    \P = \log_{\B}\left(\Y\right)
+    \text{ means }
+    \B^\P = \Y
+   \end{equation*}}
+  Conversion to $\ln$:
+  \WithSymbolDefs{
+   \begin{equation*}
+    \log_{\B}\left(\Y\right)
+    = \frac{\LN{\Y}}{\LN{\B}}
+   \end{equation*}
+  }
+ \end{FormulaBox}
+ \begin{FormulaBox}{Calculator keys}
+  On most calculators
+  \begin{itemize}
+  \item \texttt{EXP} means $\me^x$
+  \item \texttt{LN} means $\LN{x}$
+  \item \texttt{LOG} means $\log_{10}(x)$
+  \end{itemize}
+ \end{FormulaBox}
+\end{multicols}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Business-calculus-workbook"
+%%% End:

@@ -1,0 +1,128 @@
+\Section{Sketching graphs with the first derivative}
+\label{sec:gr-with-fp}
+
+Consider the function $f(x) = 2x^3 + 3x^2 - 120x + 200$.
+
+\begin{ProblemSet}
+
+ \begin{Problem}
+  Find $f'(x)$
+ \end{Problem}
+
+ \begin{Problem}[pencil space=3in]
+  Find critical numbers by solving $f'(x) = 0$.
+  There should be two of them.
+  Figure out which one is less than the other.
+  Name the lesser one $c_1$ and the greater one $c_2$.
+ \end{Problem}
+
+ \begin{Problem}
+  List out the open intervals between critical numbers.
+  The first one goes from $-\infty$ to the least critical number.
+  The second goes between the critical numbers.
+  The third goes from the greatest critical number to $\infty$.
+ \end{Problem}
+
+ \newpage
+
+ \begin{Problem}[pencil space=0in]
+  Put marks on this number line for $c_1$ and $c_2$.
+  Then mark three test numbers, one to the left of $c_1$,
+  one between $c_1$ and $c_2$,
+  and one to the right of $c_2$.
+  There should be one test number from each interval you listed.
+
+  \begin{tikzpicture}[scale=0.75]
+   \clip (-11,-3) rectangle (11,3) ;
+   \draw (-10.5,0) -- (10.5,0) ; %edit here for the axis
+   \foreach \x in  {-10, -9, ..., 10} % edit here for the vertical lines
+     \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+   \foreach \x in {-10, -8, ..., 10} % edit here for the numbers
+     \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$\x$};
+  \end{tikzpicture}
+ \end{Problem}
+
+ \begin{Problem}[pencil space=0in]
+  \begin{itemize}
+  \item Enter the numbers you marked on the number line in the $x$ column, from least at the top to greatest at the bottom.
+  \item Plug each of those values of $x$ into $f'$ and record that value in the $f'(x)$ column.
+   There should be two boxes in the $f'$ column that are zero.
+   The others should all be non-zero.
+  \item For each test number, in the ``meaning'' column, write what the sign of $f'$ tells you about $f$ on the interval the test number came from.
+  \item On the number line from before, draw increasing arrows $\nearrow$ and decreasing arrows $\searrow$ over the intervals where $f$ is increasing and decreasing.
+  \item For each critical number, look at what happens in the interval just to its left and right, and determine what kind of critical point is there (local minimum, local maximum, neither).
+   Write this in the ``meaning'' column on that row.
+  \item On the number line from before, draw hills $\wedge$ and valleys $\vee$ over the critical numbers where $f$ has local maximum and local minimum points.
+  \end{itemize}
+  \bigskip
+
+  \newcommand{\Bx}[1]{\Strut[-0.25in]{0.75in}#1}
+  \begin{tabular}{l|p{1in}|p{1in}|p{3in}}
+    Type & $x$ & $f'(x)$ & meaning
+    \\ \hline
+    \Bx{test} & & &
+    \\ \hline
+    \Bx{crit} & \Bx{$c_1 = $} & &
+    \\ \hline
+    \Bx{test} & & &
+    \\ \hline
+    \Bx{crit} & \Bx{$c_2 = $} & &
+    \\ \hline
+    \Bx{test} & & &
+    \\ \hline
+  \end{tabular}
+
+ \end{Problem}
+
+ \begin{Problem}[pencil space=2.5in]
+  Write sentences to answer these questions:
+  \begin{itemize}
+  \item On what intervals is $f$ increasing?
+  \item On what intervals is $f$ decreasing?
+  \item At what coordinates $(x,y)$ does $f$ have local maximum points?
+  \item At what coordinates $(x,y)$ does $f$ have local minimum points?
+  \end{itemize}
+ \end{Problem}
+
+ \begin{Problem}
+  On the grid below, sketch the graph of $f$ using the information that you've found.
+  Draw axes and label the scales.
+  Choose $\xMin$ a little to the left of $c_1$, and choose $\xMax$ a little to the right of $c_2$.
+  Choose $\yMin$ a little below the $y$-value of the local minimum, and choose $\yMax$ a little above the $y$-value of the local maximum.
+  That way, all important features of $f$ are visible.
+  Plot the critical points you found and draw a smooth curve connecting them.
+  The curve may be easier to draw if you plot a few extra points on the graph.
+  Use the arrows on the number line as a guide.
+  If you have conflicting information, look for a mistake and fix it.
+
+  \bigskip
+  \GraphingGrid
+
+ \end{Problem}
+\end{ProblemSet}
+
+\newpage
+
+Given the following function,
+\begin{equation*}
+ f(x) = -\frac{1}{3} x^3 - 2 x^2 + 12 x + 20
+\end{equation*}
+answer the following questions.
+Give exact answers or decimal approximations to the nearest hundredth, as in $1.23$ or $12.34$.
+For maximum credit, make appropriate use of differential calculus and show all your work.
+
+\begin{itemize}
+\item On what intervals is $f$ increasing, and on what intervals is $f$ decreasing?
+\item Identify all critical points of $f$ (both coordinates), and classify each as a local maximum, a local minimum, or neither.
+\item Draw the graph of $f$ on the given grid using this information.
+ Be sure to label the axes.
+
+\end{itemize}
+
+\bigskip
+\GraphingGrid
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Business-calculus-workbook"
+%%% End:

@@ -1,0 +1,109 @@
+\documentclass[12pt,fleqn,twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{parskip}
+\usepackage[charter]{mathdesign}
+\usepackage{inconsolata}
+\usepackage{nicefrac}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{tocbasic}
+\usepackage{wgmmath}
+\usepackage{wgmutil}
+\usepackage{workbook}
+\usepackage{workbookutil}
+% cleveref has to be LAST
+\usepackage{cleveref}
+% Don't include eq.~ in front of equation numbers
+\crefname{equation}{}{}
+
+% The format is \graphicspath{{dir1/}{dir2/}...}
+\graphicspath{{Visual-intuition-with-first-derivative/}}
+
+
+\newcommand*{\xMin}{x_\mathrm{min}}
+\newcommand*{\yMin}{y_\mathrm{min}}
+\newcommand*{\xMax}{x_\mathrm{max}}
+\newcommand*{\yMax}{y_\mathrm{max}}
+
+\title{Business Calculus Workbook}
+\author{W. Garrett Mitchener}
+\date{May 2023}
+
+\raggedbottom
+
+% \MarkAsDraft
+
+\begin{document}
+\maketitle
+
+\input{License}
+
+\tableofcontents
+
+\include{Warnings-and-common-mistakes}
+\include{Algebra-practice-nested-structure}
+\include{Algebra-practice-function-notation}
+\include{Algebra-practice-graph-interpretation}
+\include{Graph-sketching-plotting-points}
+\include{Algebra-practice-solving}
+\include{Properties-of-exponents-for-real-numbers}
+\include{Algebra-practice-simplifying-with-exponents}
+\include{Roots-and-fractional-exponents}
+\include{Algebra-practice-simplifying-with-exponents-and-roots}
+\include{Algebra-practice-solving-quadratic-equations}
+\include{Business-modeling-core-concepts}
+\include{Limits}
+\include{Derivative-rules-basics}
+\include{Derivative-practice-basics}
+\include{Applications-rate-of-change}
+\include{Geometry-tangent-lines}
+\include{Business-modeling-marginal-analysis}
+\include{Derivative-rules-product-and-quotient}
+\include{Derivative-practice-product-rule}
+\include{Derivative-practice-quotient-rule}
+\include{Derivative-rules-chain-rule}
+\include{Derivative-practice-chain-rule-Lagrange-notation}
+\include{Derivative-practice-chain-rule-Leibniz-notation}
+\include{Visual-intuition-for-graphs}
+\include{Sketching-graphs-with-the-first-derivative}
+\include{Derivative-practice-combinations-and-tricky-ones}
+\include{Derivative-practice-abstract-functions}
+\include{Business-modeling-harder-functions}
+\include{Absolute-maximum-and-minimum}
+\include{Business-modeling-optimization}
+\include{Derivative-practice-second-derivatives}
+\include{Sketching-graphs-with-the-second-derivative}
+\include{Inverse-functions}
+\include{Compound-interest}
+\include{Properties-of-logarithms-for-real-numbers}
+\include{Logarithm-practice}
+\include{Derivative-rules-exponential-and-logarithmic-functions}
+\include{Derivative-practice-exponential-and-logarithmic-functions}
+\include{Absolute-extrema-with-logarithms}
+\include{Absolute-extrema-with-the-natural-exponential}
+\include{Antiderivative-rules-basics}
+\include{Antiderivative-practice-basics}
+\include{Antiderivative-practice-basics-with-exponentials}
+\include{Antiderivative-practice-word-problems}
+\include{Definite-integral-practice}
+% \include{Derivative-practice-symbolic-constants}
+
+\end{document}
+
+%% Possible future topics
+%\Section{Chain-rule word problems}
+%\Section{Review of scientific notation}
+%\Section{Review of percents}
+%\Section{Exponential growth and decay}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

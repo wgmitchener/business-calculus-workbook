@@ -1,0 +1,131 @@
+\Section{Roots and fractional exponents}
+\label{sec:roots-frac-exp}
+
+\Subheading{Meaning of the root symbol}
+
+The principal $n$-th root of a real number $a$, written
+$\sqrt[n]{a}$,
+is the real number $z$ that solves
+$z^n = a$ and has the same sign as $a$.
+The term \emph{radical} is a synonym for the root symbol.
+The number $a$ is called the \emph{radicand}.
+The number $n$ is called the \emph{index} or \emph{degree} of the root.
+We generally require the index to be \emph{positive}.
+
+A plain root symbol $\sqrt{a}$ means the square root $\sqrt[2]{a}$.
+
+The 3rd root $\sqrt[3]{a}$ is also called the cube root.
+
+Be careful where you put the index:
+\begin{equation*}
+ \sqrt[3]{a} \text{ means the cube root of $a$}
+\end{equation*}
+But
+\begin{equation*}
+ 3 \sqrt{a} \text{ means } 3 \times \sqrt{a}
+\end{equation*}
+
+\Subheading{Odd roots}
+
+If $n$ is \emph{odd}, every real number $a$ has exactly one real $n$-th root $\sqrt[n]{a}$.
+It has the same sign as $a$.
+
+\Subheading{Even roots}
+
+If $n$ is \emph{even}, things are more complicated.
+\begin{itemize}
+\item The equation $z^n = 0$ has only one solution, $z = 0$.
+ So $\sqrt[n]{0} = 0$.
+
+\item If $a > 0$, the equation $z^n = a$ has two solutions for $z$.
+ The positive solution is $\sqrt[n]{a}$.
+ The negative solution is $-\sqrt[n]{a}$.
+ The set of two solutions is abbreviated $\pm \sqrt[n]{a}$.
+
+\item If $a < 0$, there is no real solution to $z^n = a$, so for our purposes, $\sqrt[n]{a}$ is undefined.
+\end{itemize}
+
+\Subheading{Meaning of a fractional power}
+
+Assuming $\nicefrac{m}{n}$ is in lowest terms,
+\begin{equation*}
+   a^{\nicefrac{m}{n}}
+   = \left(\sqrt[n]{a}\right)^m
+   = \sqrt[n]{a^m}
+\end{equation*}
+This definition only works under certain conditions:
+\begin{itemize}
+\item If $\frac{m}{n} > 0$:
+ \begin{itemize}
+ \item If $n$ is odd, this works for all real numbers $a$.
+ \item If $n$ is even, this works for $a \geq 0$.
+ \end{itemize}
+\item If $\frac{m}{n} < 0$:
+ \begin{itemize}
+ \item If $n$ is odd, this works for $a \neq 0$.
+ \item If $n$ is even, this works for $a > 0$.
+ \end{itemize}
+\end{itemize}
+
+If $m$ and $n$ are both even and positive, there's an additional possibility.
+\begin{itemize}
+\item This works for all $a$, even if $a < 0$:
+ \begin{equation*}
+  \sqrt[n]{a^m} = \sqrt[n]{\Abs{a}^m} = \Abs{a}^{\nicefrac{m}{n}}
+ \end{equation*}
+ However, this can only work for $a \geq 0$:
+ \begin{equation*}
+  \left(\sqrt[n]{a}\right)^m = a^{\nicefrac{m}{n}}
+ \end{equation*}
+\item In particular, $\sqrt{a^2} = \Abs{a}$ for every real $a$.
+\item But $(\sqrt{a})^2$ is only defined if $a \geq 0$, in which case $(\sqrt{a})^2 = a$.
+\end{itemize}
+
+If the exponent $n$ irrational, the power $a^n$ is only defined for $a \geq 0$ and must be defined in terms of logarithms.
+
+\Subheading{Properties of roots}
+
+The following properties hold as long as all operations are defined.
+
+\begin{multicols}{2}
+
+ \begin{FormulaBox}{Convert roots $\longleftrightarrow$ powers}
+  \begin{equation*}
+   \begin{split}
+     \sqrt[n]{a} &= a^{\nicefrac{1}{n}}
+     \\
+     \frac{1}{\sqrt[n]{a}} &= \frac{1}{a^{\nicefrac{1}{n}}} = a^{-\nicefrac{1}{n}}
+     \\
+   \end{split}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Product with same index}
+  \begin{equation*}
+   \left(\sqrt[n]{\vphantom{b}a}\right)
+   \cdot
+   \left(\sqrt[n]{b}\right) = \sqrt[n]{a \cdot b}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Quotient with same index}
+  \begin{equation*}
+   \frac{\sqrt[n]{a}}{\sqrt[n]{b}}
+   =
+   \sqrt[n]{\frac{a}{b}}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Nested roots}
+  \begin{equation*}
+   \sqrt[m]{\sqrt[n]{a}} = \sqrt[m\cdot n]{a}
+  \end{equation*}
+ \end{FormulaBox}
+
+
+\end{multicols}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Business-calculus-workbook"
+%%% End:

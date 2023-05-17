@@ -1,0 +1,75 @@
+\Section{Antiderivative rules---basics}
+
+In these formulas, the $\cdots + C$ is the constant of integration.
+
+\begin{multicols}{2}
+
+ \begin{FormulaBox}{Antiderivative of 0}
+  \begin{equation*}
+   \IndefiniteIntegral{ 0 }{x} = C
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Antiderivative of 1}
+  \begin{equation*}
+   \begin{split}
+     \IndefiniteIntegral{}{x} &= x + C
+     \\
+     \IndefiniteIntegral{ 1 }{x} &= x + C
+   \end{split}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Antiderivative of constant factor}
+  \begin{equation*}
+   \IndefiniteIntegral{ A \, f(x) }{x}
+   =
+   A \IndefiniteIntegral{ f(x) }{x}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Antiderivative of addition}
+  \begin{equation*}
+   \IndefiniteIntegral{ \big( f(x) + g(x) \big) }{x}
+   =
+   \IndefiniteIntegral{ f(x) }{x}
+   + \IndefiniteIntegral{ g(x) }{x}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Antiderivative of power other than $-1$}
+  For $n \neq -1$,
+  \begin{equation*}
+   \IndefiniteIntegral{ x^n }{x}
+   =
+   \frac{1}{n+1} x^{n+1} + C
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Antiderivative of power $-1$}
+  \begin{equation*}
+   \begin{split}
+     \IndefiniteIntegral{ x^{-1} }{x}
+     &=
+       \LN{\Abs{x}} + C
+     \\
+     \IndefiniteIntegral{ \frac{1}{x} }{x}
+     &=
+       \LN{\Abs{x}} + C
+   \end{split}
+  \end{equation*}
+ \end{FormulaBox}
+
+ \begin{FormulaBox}{Antiderivative of exponential}
+  \begin{equation*}
+   \int \me^{A\,x} \,\dif{x}
+   = \frac{1}{A} \me^{A\,x} + C
+  \end{equation*}
+ \end{FormulaBox}
+
+\end{multicols}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Business-calculus-workbook"
+%%% End:

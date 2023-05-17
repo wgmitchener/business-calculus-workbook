@@ -1,0 +1,70 @@
+\Section{Derivative rules---exponential and logarithmic functions}
+\begin{multicols}{2}
+ \begin{FormulaBox}{Derivative of $\ln$}
+  Derivative of natural logarithm is reciprocal:
+  \WithSymbolDefs{
+   \[ \D{\big.\LN{\X}} = \frac{1}{\X} \]
+  }
+  \bigskip
+  With chain rule:
+  \WithSymbolDefs{
+   \[
+    \D{\big.\LN{\W}}
+    = \pfrac{1}{\W} \cdot \Deriv{\W}{\X}
+   \]
+  }
+  \WithWordDefs{
+   \[
+    \D{\big.\LN{\W}}
+    = \pfrac{1}{\W} \cdot \D{\W}
+   \]
+  }
+ \end{FormulaBox}
+ \begin{FormulaBox}{Derivative of $\me^x$}
+  Natural exponential function is its own derivative:
+  \WithSymbolDefs{
+   \[ \D{\big.\me^{\X}} = \me^{\X} \]
+  }
+  \bigskip
+  With chain rule:
+  \WithSymbolDefs{
+   \[
+    \D{\big.\me^{\W}}
+    = \me^{\W} \cdot \D{\W}
+   \]
+  }
+  \WithWordDefs{
+   \[
+    \D{\me^{\W}}
+    = \me^{\W} \cdot \D{\W}
+   \]
+  }
+ \end{FormulaBox}
+ \begin{FormulaBox}{Derivative of other logarithms}
+  For a different base, convert to $\ln$ first.
+  \begin{equation*}
+   \log_b (x) = \frac{\LN{x}}{\LN{b}}
+  \end{equation*}
+  \WithSymbolDefs{
+   \[
+    \D{\big.\log_b(\X)} = \frac{1}{\LN{b} \cdot \X}
+   \]
+  }
+ \end{FormulaBox}
+ \begin{FormulaBox}{Derivative of other exponentials}
+  For a different base, convert to $\me$ first.
+  \begin{equation*}
+   b^x = \me^{x \cdot \LN{b}}
+  \end{equation*}
+  \WithSymbolDefs{
+   \[
+    \D{b^\X} = \LN{b} \cdot \me^{\X \cdot \LN{b}} = \LN{b} \cdot b^\X
+   \]
+  }
+ \end{FormulaBox}
+\end{multicols}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Business-calculus-workbook"
+%%% End:

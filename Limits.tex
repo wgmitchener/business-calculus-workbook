@@ -1,0 +1,63 @@
+\Section{Limits}
+
+Consider the function
+% ( (x - 5)(x + 5) ) / ( (x - 5)(x - 7) )
+% (x^2 - 25) / (x^2 - 12x + 35)
+\begin{equation*}
+ f(x) = \frac{x^2 - 25}{x^2 - 12x + 35}
+\end{equation*}
+Enter $f$ as a function in your calculator.
+
+\begin{ProblemSet}
+ \begin{Problem}
+  What is the domain of $f$?
+  Hint: It should be all real numbers except for two numbers that must be excluded because they would result in division by zero.
+ \end{Problem}
+ \begin{Problem}[pencil space=2in]
+  Pick one of the gaps in the domain of $f$.
+  Use a calculator to evaluate $f$ near that value of $x$.
+  (For example, if there's a gap at $x = 2$, then $f(2)$ is undefined, so look at $f(1.9)$, $f(1.99)$, \dots and $f(2.1)$, $f(2.01)$, \dots)
+  Write down a table of $x$ and $y$ values.
+  Does it look like $f$ approaches a limit at that value of $x$?
+  If so, write an equation using limit notation for what you found.
+  Otherwise, write that the limit does not exist.
+ \end{Problem}
+ \begin{Problem}[pencil space=2in]
+  Do the same for the other gap.
+ \end{Problem}
+ \begin{Problem}
+  Choose an $x$-range, that is, minimum and maximum values of $x$ that include the gaps and some space to the left and right.
+  Write it here.
+ \end{Problem}
+ \begin{Problem}
+  Use a calculator to sketch the graph of $f$ using the $x$-range you just found.
+  Select a $y$-range that lets you see all the interesting features of $f$.
+  Sketch the graph on the grid below.
+  Label the axes.
+  Draw a dotted line $\vdots$ for the vertical asymptote.
+  Draw a small circle $\circ$ for the missing point.
+  \bigskip
+
+  \GraphingGrid
+ \end{Problem}
+ \begin{Problem}[pencil space=3in]
+  Now you'll use an algebraic method to confirm the numerical results.
+  Factor the numerator and denominator of $f$.
+  Cancel common factors.
+  Write an equation defining $f^*(x) =$ this simplified expression.
+ \end{Problem}
+ \begin{Problem}
+  What is the domain of $f^*$?
+  Hint: It should have only one gap.
+ \end{Problem}
+ \begin{Problem}[pencil space=2in]
+  The domain of $f^*$ includes one value of $x$ that is not in the domain of $f$, so the limit of $f$ exists at that number, even though $f$ is not defined at that number.
+  Use $f^*$ to compute the value of the limit.
+  Express what you found using limit notation.
+ \end{Problem}
+\end{ProblemSet}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "Business-calculus-workbook"
+%%% End:
