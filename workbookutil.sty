@@ -57,8 +57,8 @@
 \newcommand{\InnerStyle}[1]{\textcolor{DarkPurple}{#1}}
 \newcommand{\ThisStyle}[1]{\LeftStyle{#1}}
 \newcommand{\ThatStyle}[1]{\RightStyle{#1}}
-\newcommand{\BaseStyle}[1]{\LeftStyle{#1}}
-\newcommand{\PowerStyle}[1]{\RightStyle{#1}}
+\newcommand{\BaseStyle}[1]{\InnerStyle{#1}}
+\newcommand{\PowerStyle}[1]{\OuterStyle{#1}}
 \newcommand{\ConstantStyle}[1]{\textcolor{DarkOrange}{#1}}
 
 \newcommand{\LN}[1]{\mathrm{ln}\hspace{-0.1ex}\left(#1\right)}
@@ -76,7 +76,7 @@
   \renewcommand{\W}{w}%
   \newcommand{\M}{{\OuterStyle{m}}}%
   \renewcommand{\N}{{\InnerStyle{n}}}%
-  \renewcommand{\P}{{\OuterStyle{n}}}%
+  \renewcommand{\P}{{\PowerStyle{n}}}%
   \newcommand{\Hi}{\U}%
   \newcommand{\Lo}{\V}%
   \newcommand{\THIS}{\ThisStyle{m}}%
@@ -98,7 +98,7 @@
   \renewcommand{\W}{\Word{stuff}}%
   \newcommand{\M}{\Word{\OuterStyle{outer}}}%
   \renewcommand{\N}{\Word{\InnerStyle{inner}}}%
-  \renewcommand{\P}{\Word{\OuterStyle{power}}}%
+  \renewcommand{\P}{\Word{\PowerStyle{power}}}%
   \newcommand{\Hi}{\Word{\LeftStyle{top}}}%
   \newcommand{\Lo}{\Word{\RightStyle{bottom}}}%
   \newcommand{\THIS}{\Word{\ThisStyle{this}}}%
