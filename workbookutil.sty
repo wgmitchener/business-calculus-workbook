@@ -44,9 +44,10 @@
  {\setcounter{wb@problem}{\value{enumi}}\end{enumerate}}
 
 % Definitions related to formulas
-\colorlet{DarkGreen}{green!70!black}
+\colorlet{DarkGreen}{green!50!black}
 \colorlet{DarkPurple}{violet}
 \colorlet{DarkRed}{red!80!black}
+\colorlet{DarkOrange}{orange!80!black}
 
 \newcommand{\Word}[1]{\mathrm{#1}}
 \newcommand{\DerivWord}[1]{\Word{deriv}\left[#1\right]}
@@ -58,6 +59,7 @@
 \newcommand{\ThatStyle}[1]{\RightStyle{#1}}
 \newcommand{\BaseStyle}[1]{\LeftStyle{#1}}
 \newcommand{\PowerStyle}[1]{\RightStyle{#1}}
+\newcommand{\ConstantStyle}[1]{\textcolor{DarkOrange}{#1}}
 
 \newcommand{\LN}[1]{\mathrm{ln}\hspace{-0.1ex}\left(#1\right)}
 \newcommand{\LOG}[2]{\log_{#1}\left(#2\right)}
@@ -67,14 +69,14 @@
   \newcommand{\FormulaStrut}{\text{\rule[-0.4ex]{0pt}{1.8ex}}}
   \newcommand{\U}{{\LeftStyle{u}}}%
   \renewcommand{\V}{{\RightStyle{v}}}%
-  \renewcommand{\K}{{\InnerStyle{C}}}%
+  \renewcommand{\K}{{\ConstantStyle{C}}}%
   \newcommand{\B}{\BaseStyle{b}}%
-  \newcommand{\Y}{{\OuterStyle{w}}}%
+  \newcommand{\Y}{{\InnerStyle{w}}}%
   \newcommand{\X}{x}%
   \renewcommand{\W}{w}%
   \newcommand{\M}{{\OuterStyle{m}}}%
   \renewcommand{\N}{{\InnerStyle{n}}}%
-  \renewcommand{\P}{{\InnerStyle{n}}}%
+  \renewcommand{\P}{{\OuterStyle{n}}}%
   \newcommand{\Hi}{\U}%
   \newcommand{\Lo}{\V}%
   \newcommand{\THIS}{\ThisStyle{m}}%
@@ -89,14 +91,14 @@
   \newcommand{\FormulaStrut}{\text{\rule[-0.4ex]{0pt}{1.8ex}}}
   \newcommand{\U}{\Word{\LeftStyle{left}}}%
   \renewcommand{\V}{\Word{\RightStyle{right}}}%
-  \renewcommand{\K}{\Word{\InnerStyle{constant}}}%
+  \renewcommand{\K}{\Word{\ConstantStyle{constant}}}%
   \newcommand{\B}{\Word{\BaseStyle{base}}}%
-  \newcommand{\Y}{\Word{\OuterStyle{stuff}}}%
+  \newcommand{\Y}{\Word{\InnerStyle{stuff}}}%
   \newcommand{\X}{x}%
   \renewcommand{\W}{\Word{stuff}}%
   \newcommand{\M}{\Word{\OuterStyle{outer}}}%
   \renewcommand{\N}{\Word{\InnerStyle{inner}}}%
-  \renewcommand{\P}{\Word{\InnerStyle{power}}}%
+  \renewcommand{\P}{\Word{\OuterStyle{power}}}%
   \newcommand{\Hi}{\Word{\LeftStyle{top}}}%
   \newcommand{\Lo}{\Word{\RightStyle{bottom}}}%
   \newcommand{\THIS}{\Word{\ThisStyle{this}}}%
