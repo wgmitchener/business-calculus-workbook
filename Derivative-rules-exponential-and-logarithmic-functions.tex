@@ -3,21 +3,23 @@
  \begin{FormulaBox}{Derivative of $\ln$}
   Derivative of natural logarithm is reciprocal:
   \WithSymbolDefs{
-   \[ \D{\big.\LN{\X}} = \frac{1}{\X} \]
+   \begin{equation*}
+    \D{\big.\LN{\X}} = \frac{1}{\X}
+   \end{equation*}
   }
   \bigskip
   With chain rule:
   \WithSymbolDefs{
-   \[
-    \D{\big.\LN{\W}}
-    = \pfrac{1}{\W} \cdot \Deriv{\W}{\X}
-   \]
+   \begin{equation*}
+    \D{\big.\OuterStyle{\LN{\Y}}}
+    = \OuterStyle{\pfrac{1}{\Y}} \cdot \D{\Y}
+   \end{equation*}
   }
   \WithWordDefs{
-   \[
-    \D{\big.\LN{\W}}
-    = \pfrac{1}{\W} \cdot \D{\W}
-   \]
+   \begin{equation*}
+    \D{\big.\OuterStyle{\LN{\Y}}}
+    = \OuterStyle{\pfrac{1}{\Y}} \cdot \D{\Y}
+   \end{equation*}
   }
  \end{FormulaBox}
  \begin{FormulaBox}{Derivative of $\me^x$}
@@ -28,16 +30,16 @@
   \bigskip
   With chain rule:
   \WithSymbolDefs{
-   \[
-    \D{\big.\me^{\W}}
-    = \me^{\W} \cdot \D{\W}
-   \]
+   \begin{equation*}
+    \D{\big.\OuterStyle{\me^{\Y}}}
+    = \OuterStyle{\me^{\Y}} \cdot \D{\Y}
+   \end{equation*}
   }
   \WithWordDefs{
-   \[
-    \D{\me^{\W}}
-    = \me^{\W} \cdot \D{\W}
-   \]
+   \begin{equation*}
+    \D{\big.\OuterStyle{\me^{\Y}}}
+    = \OuterStyle{\me^{\Y}} \cdot \D{\Y}
+   \end{equation*}
   }
  \end{FormulaBox}
  \begin{FormulaBox}{Derivative of other logarithms}
