@@ -1,0 +1,56 @@
+\documentclass[12pt,fleqn,twoside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{graphicx}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{parskip}
+\usepackage[charter]{mathdesign}
+\usepackage{inconsolata}
+\usepackage{nicefrac}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{tocbasic}
+\usepackage{wgmmath}
+\usepackage{wgmutil}
+\usepackage{workbook}
+\usepackage{workbookutil}
+% cleveref has to be LAST
+\usepackage{cleveref}
+% Don't include eq.~ in front of equation numbers
+\crefname{equation}{}{}
+
+% The format is \graphicspath{{dir1/}{dir2/}...}
+\graphicspath{{Visual-intuition-with-first-derivative/}}
+
+
+\newcommand*{\xMin}{x_\mathrm{min}}
+\newcommand*{\yMin}{y_\mathrm{min}}
+\newcommand*{\xMax}{x_\mathrm{max}}
+\newcommand*{\yMax}{y_\mathrm{max}}
+
+\title{Business Calculus Workbook --- Supplement}
+\author{W. Garrett Mitchener}
+\date{Fall 2025}
+
+\raggedbottom
+
+% \MarkAsDraft
+
+\begin{document}
+\maketitle
+
+\input{License}
+
+\tableofcontents
+
+\include{Algebra-practice-computing-with-exponents}
+\include{Business-modeling-harder-functions}
+
+\end{document}
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:
