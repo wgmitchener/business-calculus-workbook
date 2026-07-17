@@ -32,14 +32,7 @@ Consider the function $f(x) = 2x^3 + 3x^2 - 120x + 200$.
   and one to the right of $c_2$.
   There should be one test number from each interval you listed.
 
-  \begin{tikzpicture}[scale=0.75]
-   \clip (-11,-3) rectangle (11,3) ;
-   \draw (-10.5,0) -- (10.5,0) ; %edit here for the axis
-   \foreach \x in  {-10, -9, ..., 10} % edit here for the vertical lines
-     \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
-   \foreach \x in {-10, -8, ..., 10} % edit here for the numbers
-     \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$\x$};
-  \end{tikzpicture}
+  \NumberLine
  \end{Problem}
 
  \begin{Problem}[pencil space=0in]
